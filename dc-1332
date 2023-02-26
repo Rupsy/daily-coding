@@ -1,14 +1,19 @@
-Problem : Good morning! Here's your coding interview problem for today.
+'''Good morning! Here's your coding interview problem for today.
 
 This problem was asked by Airbnb.
 
-You are given an array X of floating-point numbers x1, x2, ... xn. These can be rounded up or down to create a corresponding array Y of integers y1, y2, ... yn.
+You are given an array X of floating-point numbers x1, x2, ... xn. These can be rounded up or down to
+create a corresponding array Y of integers y1, y2, ... yn.
 
 Write an algorithm that finds an appropriate Y array with the following properties:
 
 The rounded sums of both arrays should be equal.
-The absolute pairwise difference between elements is minimized. In other words, |x1- y1| + |x2- y2| + ... + |xn- yn| should be as small as possible.
-For example, suppose your input is [1.3, 2.3, 4.4]. In this case you cannot do better than [1, 2, 5], which has an absolute difference of |1.3 - 1| + |2.3 - 2| + |4.4 - 5| = 1.
+The absolute pairwise difference between elements is minimized. 
+In other words, |x1- y1| + |x2- y2| + ... + |xn- yn| 
+should be as small as possible.
+For example, suppose your input is [1.3, 2.3, 4.4].
+ In this case you cannot do better than [1, 2, 5],
+  which has an absolute difference of |1.3 - 1| + |2.3 - 2| + |4.4 - 5| = 1.
 
 Upgrade to premium and get in-depth solutions to every problem, including this one.
 
@@ -17,4 +22,27 @@ If you liked this problem, feel free to forward it along so they can subscribe h
 Practice makes perfect. Book a mock interview with a FAANG-level interviewer today from our friends at Exponent (10% off!).
 
 System design interviews are becoming more popular in SWE interviews. Here's how to prepare.
+'''
 
+a = [1.4, 2.3, 4.4, 5.76543]
+b = []
+for i in a:
+    new_value = round(float(i))
+    b.append(new_value)
+
+l = len(a)
+abs_arr = []
+sum_a = 0
+sum_b = 0
+for i in range(l):
+    print(a[i], b[i])
+    abs_arr.append(abs(a[i] - b[i]))
+
+print(abs_arr)
+
+for i in range(len(abs_arr)):
+    sum_b = sum_b + a[i]
+    sum_a = sum_a + abs_arr[i]
+
+print(sum_a)
+print(sum_b)
